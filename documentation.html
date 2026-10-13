@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesign Documentation | Destin Pet Friendly Condos</title>
+<meta name="description" content="Project documentation for the Destin Pet Friendly Condos website redesign: changes from the original site, sitemap, and the color palette, fonts and logo for each design option.">
+<!-- Internal project page: not linked from the site menus and hidden from search engines. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Every font used by the four designs and the logo options, so the samples below render in the real faces. -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600&family=Karla:wght@400;500;600;700&family=Lora:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=Nunito+Sans:opsz,wght@6..12,400..900&display=swap" rel="stylesheet">
+<style>
+  /* This page is self-contained on purpose: it documents four designs, so it does not load any of their stylesheets. */
+  :root {
+    --ink: #17324D; --body: #3B4F63; --muted: #55606B; --accent: #2F6F64;
+    --line: #E3E1DB; --panel: #F7F6F3; --white: #FFFFFF;
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'Karla', system-ui, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--white); color: var(--body); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, h4 { color: var(--ink); text-wrap: balance; }
+  h1 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 5vw, 54px); line-height: 1.06; letter-spacing: -0.02em; }
+  h2 { margin: 0 0 10px; font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.015em; }
+  h3 { margin: 40px 0 14px; font-size: 20px; font-weight: 700; line-height: 1.3; }
+  h4 { margin: 0 0 6px; font-size: 17px; font-weight: 700; }
+  p { margin: 0 0 14px; }
+  a { color: var(--ink); text-underline-offset: 4px; }
+  a:hover { color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  code { font-family: var(--mono); font-size: 0.86em; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; white-space: nowrap; }
+  .kicker { margin: 0 0 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+  .lede { max-width: 760px; font-size: 19px; }
+  .note { max-width: 760px; margin: 18px 0 0; padding: 14px 18px; background: var(--panel); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; font-size: 16px; }
+  .note :last-child { margin-bottom: 0; }
+
+  /* Header and in-page menu */
+  .doc-header { padding: 64px 0 40px; }
+  .doc-header .lede { margin-top: 18px; }
+  .doc-links { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 22px 0 0; padding: 0; list-style: none; font-size: 16px; }
+  .doc-links span { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  .doc-nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, 0.96); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .doc-nav ul { display: flex; gap: 6px 22px; margin: 0; padding: 12px 0; list-style: none; overflow-x: auto; white-space: nowrap; font-size: 15px; font-weight: 600; }
+  .doc-nav a { text-decoration: none; }
+  .doc-nav a:hover { text-decoration: underline; }
+  main > section { padding: 60px 0; border-bottom: 1px solid var(--line); }
+
+  /* Page-by-page table */
+  .table-scroll { margin-top: 24px; overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; }
+  table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 16px; }
+  th, td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  thead th { background: var(--panel); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  tbody th { width: 21%; font-weight: 700; color: var(--ink); }
+  tbody td:nth-child(2) { width: 23%; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+  td small, th small { display: block; margin-top: 2px; font-size: 14px; font-weight: 400; color: var(--muted); }
+  .tag { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #E4F1EC; color: #1F5A50; }
+  .tag--gone { background: #F1EDE4; color: #5B5446; }
+
+  /* Sitemap */
+  .sitemaps { display: grid; grid-template-columns: 3fr 2fr; gap: 24px; margin-top: 24px; }
+  .sitemap { min-width: 0; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+  .sitemap h3 { margin: 0 0 14px; }
+  .tree, .tree ul { margin: 0; padding: 0; list-style: none; }
+  .tree ul { margin: 8px 0 4px 10px; padding-left: 18px; border-left: 2px solid var(--line); }
+  .tree li { margin: 0 0 8px; }
+  .tree li:last-child { margin-bottom: 0; }
+  .tree small { color: var(--muted); font-size: 15px; overflow-wrap: anywhere; }
+  .tree .group { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+  /* Design option tiles */
+  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+  .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--body); }
+  .tile:hover { border-color: var(--ink); color: var(--body); }
+  .tile__preview { flex: 1; display: flex; flex-direction: column; gap: 10px; min-height: 212px; padding: 22px 18px; background: var(--t-bg); }
+  .tile__h { font: var(--t-h); letter-spacing: -0.02em; color: var(--t-ink); }
+  .tile__p { font: var(--t-p); color: var(--t-text); }
+  .tile__btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+  .tile__btn { display: inline-flex; align-items: center; height: 36px; padding: 0 11px; white-space: nowrap; border-radius: var(--t-radius); font: var(--t-btn); border: 1.5px solid var(--t-primary); background: var(--t-primary); color: #fff; }
+  .tile__info { display: flex; flex-direction: column; gap: 4px; padding: 16px 20px 18px; border-top: 1px solid var(--line); }
+  .tile__info strong { font-size: 18px; color: var(--ink); }
+  .tile__info small { font-size: 15px; color: var(--muted); }
+  .tile--a1 { --t-bg: #FBF8F3; --t-ink: #17324D; --t-text: #3B4F63; --t-primary: #17324D; --t-radius: 12px; --t-h: 400 27px/1.08 'Newsreader', serif; --t-p: 400 14px/1.5 'Karla', sans-serif; --t-btn: 600 13px/1 'Karla', sans-serif; }
+  .tile--a2 { --t-bg: #FBF8F2; --t-ink: #15304B; --t-text: #4E6274; --t-primary: #15304B; --t-radius: 999px; --t-h: 500 25px/1.15 'Lora', serif; --t-p: 400 14px/1.5 'Nunito Sans', sans-serif; --t-btn: 600 13px/1 'Nunito Sans', sans-serif; }
+  .tile--b1 { --t-bg: #F6EBDC; --t-ink: #0F5E63; --t-text: #173B3D; --t-primary: #C94A33; --t-radius: 10px; --t-h: 700 25px/1.08 'Bricolage Grotesque', sans-serif; --t-p: 400 14px/1.5 'Figtree', sans-serif; --t-btn: 600 13px/1 'Figtree', sans-serif; }
+  .tile--b2 { --t-bg: #FBF6EE; --t-ink: #08434A; --t-text: #3E4A4C; --t-primary: #C2502F; --t-radius: 999px; --t-h: 800 26px/1.02 'Bricolage Grotesque', sans-serif; --t-p: 400 14px/1.5 'Nunito Sans', sans-serif; --t-btn: 700 13px/1 'Nunito Sans', sans-serif; }
+
+  /* Per-design sections */
+  .design__files { font-size: 16px; }
+  .logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+  .logo-box { min-width: 0; margin: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .logo-box__art { display: flex; align-items: center; gap: 12px; min-height: 120px; padding: 24px 28px; }
+  .logo-box figcaption { padding: 10px 16px; border-top: 1px solid var(--line); background: var(--white); font-size: 14px; color: var(--muted); }
+  .spec { margin: 16px 0 0; padding-left: 20px; max-width: 820px; }
+  .spec li { margin-bottom: 6px; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .swatches li { display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; padding-bottom: 12px; font-size: 15px; line-height: 1.45; }
+  .swatches i { display: block; height: 76px; margin-bottom: 10px; background: var(--c); border-bottom: 1px solid rgba(23, 50, 77, 0.12); }
+  .swatches b, .swatches span, .swatches small { padding: 0 14px; }
+  .swatches b { color: var(--ink); font-size: 16px; }
+  .swatches span { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+  .swatches small { font-size: 14px; color: var(--muted); }
+  .swatches--minor { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .swatches--minor i { height: 40px; }
+  .sub { margin: 26px 0 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+  .fonts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .font { min-width: 0; border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+  .font__sample { margin: 0 0 14px; color: var(--ink); overflow-wrap: anywhere; }
+  .font__name { margin: 0 0 4px; font-size: 18px; font-weight: 700; color: var(--ink); }
+  .font p:last-child { margin-bottom: 0; font-size: 16px; }
+  .scale { margin-top: 16px; }
+  .scale table { min-width: 560px; }
+
+  /* Button samples. Each table sets its own design's values; the is-* classes show the states side by side. */
+  .btn-table th, .btn-table td { padding-left: 12px; padding-right: 12px; }
+  .btn-table th:first-child { padding-left: 18px; }
+  .btn-table tbody th { width: auto; white-space: nowrap; vertical-align: middle; }
+  .btn-table tbody td, .btn-table tbody td:nth-child(2) { width: auto; padding-top: 26px; padding-bottom: 26px; vertical-align: middle; background: var(--b-page); }
+  .bd { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: var(--b-pad); border: var(--b-line) solid transparent; border-radius: var(--b-radius); font: var(--b-font); line-height: 1; white-space: nowrap; }
+  .bd--p { background: var(--p-bg); color: #FFFFFF; }
+  .bd--p.is-hover { background: var(--p-hover); }
+  .bd--p.is-pressed { background: var(--p-pressed); transform: translateY(1px); }
+  .bd--p.is-disabled { background: var(--p-off-bg); color: var(--p-off-text); }
+  .bd--s { border-color: var(--s-line); color: var(--s-line); }
+  .bd--s.is-hover { background: var(--s-hover); }
+  .bd--s.is-pressed { background: var(--s-pressed); border-color: var(--s-pressed-line); color: var(--s-pressed-line); }
+  .bd--s.is-disabled { border-color: var(--s-off-line); color: var(--s-off-text); }
+  .bd.is-focus { outline: 3px solid var(--b-focus); outline-offset: var(--b-focus-gap); }
+  .btn-table--a1 { --b-page: #FBF8F3; --b-pad: 0 24px; --b-line: 1.5px; --b-radius: 12px; --b-font: 600 16px 'Karla', sans-serif; --b-focus: #2F6F64; --b-focus-gap: 3px;
+    --p-bg: #17324D; --p-hover: #0F2338; --p-pressed: #08182A; --p-off-bg: #DCE1E6; --p-off-text: #5F6B78;
+    --s-line: #17324D; --s-hover: #E3EEF6; --s-pressed: #CCDDEA; --s-pressed-line: #0F2338; --s-off-line: #C2CAD2; --s-off-text: #7A8592; }
+  .btn-table--a2 { --b-page: #FBF8F2; --b-pad: 0 28px; --b-line: 1.5px; --b-radius: 999px; --b-font: 600 16px 'Nunito Sans', sans-serif; --b-focus: #7FB6D9; --b-focus-gap: 2px;
+    --p-bg: #15304B; --p-hover: #0F2439; --p-pressed: #0A1A2B; --p-off-bg: #C5CFD6; --p-off-text: #FFFFFF;
+    --s-line: #15304B; --s-hover: #E6F3EF; --s-pressed: #CFE8E1; --s-pressed-line: #15304B; --s-off-line: #C5CFD6; --s-off-text: #9AA7B0; }
+  .btn-table--b1 { --b-page: #FFFDF9; --b-pad: 0 26px; --b-line: 2px; --b-radius: 10px; --b-font: 600 16px 'Figtree', sans-serif; --b-focus: rgba(15, 94, 99, 0.4); --b-focus-gap: 2px;
+    --p-bg: #C94A33; --p-hover: #B03E29; --p-pressed: #953421; --p-off-bg: #D9CFC2; --p-off-text: #FFFFFF;
+    --s-line: #0F5E63; --s-hover: #E3F0EE; --s-pressed: #CDE4E0; --s-pressed-line: #0F5E63; --s-off-line: #D9CFC2; --s-off-text: #9A9188; }
+  .btn-table--b2 { --b-page: #FBF6EE; --b-pad: 0 24px; --b-line: 2px; --b-radius: 999px; --b-font: 700 16px 'Nunito Sans', sans-serif; --b-focus: #0D5C63; --b-focus-gap: 3px;
+    --p-bg: #C2502F; --p-hover: #A6421F; --p-pressed: #8C3719; --p-off-bg: #E5DCCF; --p-off-text: #6E6458;
+    --s-line: #0D5C63; --s-hover: #E3F0EF; --s-pressed: #C9E1DF; --s-pressed-line: #08434A; --s-off-line: #CFC6B8; --s-off-text: #857B6E; }
+  .btn-table--b2 .bd--s.is-pressed { transform: translateY(1px); }
+
+  /* Additional logo options. Marks are drawn once as symbols and recolored per row through --l1, --l2 and --l3. */
+  .logo-options { display: grid; gap: 28px; max-width: 860px; margin-top: 28px; }
+  .logo-option { min-width: 0; }
+  .logo-option h3 { margin: 0 0 12px; }
+  .logo-option h3 small { margin-left: 8px; font-size: 15px; font-weight: 400; color: var(--muted); }
+  .m1 { fill: var(--l1); } .m2 { fill: var(--l2); } .m3 { fill: var(--l3); }
+  .m1s { fill: none; stroke: var(--l1); } .m2s { fill: none; stroke: var(--l2); }
+  .lockup-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; padding: 14px 22px; border: 1px solid transparent; border-radius: 14px; }
+  .lockup-row + .lockup-row { margin-top: 12px; }
+  .lockup-row--a { background: #FFFFFF; border-color: #E7E3DA; --l1: #17324D; --l2: #5E9C90; --l3: #E3EEF6; }
+  .lockup-row--b { background: #FBF6EE; --l1: #0D5C63; --l2: #D9A15F; --l3: #F1DFC4; }
+  .lockup { display: flex; align-items: center; gap: 12px; min-width: 0; color: var(--l1); }
+  .lockup svg { flex: none; width: 40px; height: 40px; }
+  .lockup__name { font-size: 21px; line-height: 1.1; }
+  .wm-1 { font-family: 'Newsreader', serif; font-weight: 500; letter-spacing: -0.01em; }
+  .wm-2 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.03em; }
+  .wm-3 { font-family: 'Nunito Sans', sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+  .wm-4 { font-family: 'Newsreader', serif; font-weight: 500; font-style: italic; letter-spacing: -0.01em; }
+  .lockup-row__side { display: flex; align-items: center; gap: 16px; flex: none; }
+  .lockup-row__label { font-family: var(--mono); font-size: 13px; color: #55606B; }
+  .lockup-row--b .lockup-row__label { color: #5A5348; }
+  .lockup-row__btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #17324D; color: #FFFFFF; font: 600 15px/1 'Karla', sans-serif; white-space: nowrap; }
+  .lockup-row--b .lockup-row__btn { padding: 0 20px; border-radius: 999px; background: #C2502F; font-weight: 700; }
+  .lockup-card { display: flex; align-items: center; justify-content: center; gap: 22px; min-height: 190px; padding: 32px 24px; border-radius: 16px; }
+  .lockup-card svg { flex: none; }
+  .lockup-card__text { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .lockup-card__caps { font: 500 19px/1 'Karla', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+  @media (max-width: 640px) {
+    .lockup-row { padding: 12px 14px; }
+    .lockup-row__label { display: none; }
+    .lockup__name { font-size: 17px; }
+    .lockup-row__btn { height: 36px; padding: 0 12px; font-size: 14px; }
+    .lockup-row--b .lockup-row__btn { padding: 0 14px; }
+    .lockup-card { flex-direction: column; text-align: center; gap: 16px; }
+    .lockup-card__text { align-items: center; }
+  }
+
+  @media (max-width: 1000px) {
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sitemaps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    .doc-header { padding: 40px 0 28px; }
+    main > section { padding: 44px 0; }
+    .tiles { grid-template-columns: 1fr; }
+    .sitemap, .font { padding: 18px; }
+  }
+  @media print {
+    .doc-nav { position: static; }
+    main > section { break-inside: avoid-page; }
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <div class="wrap">
+    <p class="kicker">Project documentation</p>
+    <h1>Destin Pet Friendly Condos: Website Redesign</h1>
+    <p class="lede">What changed between the original site and the redesign, the new sitemap, and the logo, colors, fonts and buttons for the main design and three alternate design options.</p>
+    <ul class="doc-links">
+      <li><span>Original site</span><a href="https://destinpetcondos.com/">destinpetcondos.com</a></li>
+      <li><span>Redesign (work in progress)</span><a href="https://angelaharalson.github.io/wip/index.html">angelaharalson.github.io/wip</a></li>
+      <li><span>Last updated</span>October 12, 2026</li>
+    </ul>
+  </div>
+</header>
+
+<nav class="doc-nav" aria-label="On this page">
+  <div class="wrap">
+    <ul>
+      <li><a href="#designs">Design options</a></li>
+      <li><a href="#pages">Page by page</a></li>
+      <li><a href="#sitemap">Sitemap</a></li>
+      <li><a href="#coastal-a1">Coastal A1</a></li>
+      <li><a href="#coastal-a2">Coastal A2</a></li>
+      <li><a href="#sunny-shoreline-b1">Sunny Shoreline B1</a></li>
+      <li><a href="#sunny-shoreline-b2">Sunny Shoreline B2</a></li>
+      <li><a href="#logo-options">Logo options</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============================== DESIGN OPTIONS ============================== -->
+  <section id="designs">
+    <div class="wrap">
+      <h2>Design options</h2>
+      <p class="lede">Four homepage designs in two families. Coastal is calm and serif-led in navy and seafoam. Sunny Shoreline is warmer and bolder in teal, sand and coral.</p>
+      <div class="tiles">
+        <a class="tile tile--a1" href="index.html">
+          <span class="tile__preview">
+            <span class="tile__h">Pet Friendly Condos in Destin</span>
+            <span class="tile__p">Gulf view condos where every pet is welcome.</span>
+            <span class="tile__btns"><span class="tile__btn">View Design</span></span>
+          </span>
+          <span class="tile__info"><strong>Coastal A1</strong><small>Main design · index.html</small></span>
+        </a>
+        <a class="tile tile--a2" href="index-a2.html">
+          <span class="tile__preview">
+            <span class="tile__h">Pet Friendly Condos in Destin</span>
+            <span class="tile__p">Gulf view condos where every pet is welcome.</span>
+            <span class="tile__btns"><span class="tile__btn">View Design</span></span>
+          </span>
+          <span class="tile__info"><strong>Coastal A2</strong><small>Alternate · index-a2.html</small></span>
+        </a>
+        <a class="tile tile--b1" href="index-b1.html">
+          <span class="tile__preview">
+            <span class="tile__h">Pet Friendly Condos in Destin</span>
+            <span class="tile__p">Gulf view condos where every pet is welcome.</span>
+            <span class="tile__btns"><span class="tile__btn">View Design</span></span>
+          </span>
+          <span class="tile__info"><strong>Sunny Shoreline B1</strong><small>Alternate · index-b1.html</small></span>
+        </a>
+        <a class="tile tile--b2" href="index-b2.html">
+          <span class="tile__preview">
+            <span class="tile__h">Pet Friendly Condos in Destin</span>
+            <span class="tile__p">Gulf view condos where every pet is welcome.</span>
+            <span class="tile__btns"><span class="tile__btn">View Design</span></span>
+          </span>
+          <span class="tile__info"><strong>Sunny Shoreline B2</strong><small>Alternate · index-b2.html</small></span>
+        </a>
+      </div>
+      <div class="note">
+        <p>The three alternates are homepage designs. Each has its own stylesheet and script, and their menu links open the shared inner pages, which use the Coastal A1 design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PAGE BY PAGE ============================== -->
+  <section id="pages">
+    <div class="wrap">
+      <h2>Page by page</h2>
+      <p class="lede">Where each original page went, and what is different on its replacement.</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">Original page</th><th scope="col">Redesigned page</th><th scope="col">What changed</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Home<small>/</small></th>
+              <td><a href="index.html">Home</a><small>index.html</small></td>
+              <td>The photo slider, welcome paragraph and sidebar are replaced by a single-column page: headline with two actions, four highlights, a pets section, amenities with nearby dining and shopping, two guest reviews and a closing booking call.</td>
+            </tr>
+            <tr>
+              <th scope="row">Vacation Rentals<small>/vacation-rentals/</small></th>
+              <td><a href="vacation-rentals.html">Vacation Rentals</a><small>vacation-rentals.html</small></td>
+              <td>The same Vacation RentPro booking engine, embedded at full width. A one-line introduction is added above it, and a line with the phone number and a Rental Policies link below.</td>
+            </tr>
+            <tr>
+              <th scope="row">Photo Gallery<small>/photo-gallery/</small></th>
+              <td><span class="tag tag--gone">Not carried over</span></td>
+              <td>The original page holds four photos and three short captions. The redesign has no gallery page.</td>
+            </tr>
+            <tr>
+              <th scope="row">Local Attractions<small>/local-attractions/</small></th>
+              <td><a href="things-to-do.html">Things to Do</a><small>things-to-do.html</small></td>
+              <td>The golf, restaurant and boat rental links are kept as link cards, with Harry T's moved to the pet-friendly list. New: pet-friendly parks, shopping, boat rentals and restaurants with descriptions, three event calendars, and a link to Visit Florida.</td>
+            </tr>
+            <tr>
+              <th scope="row">News and Events<small>/category/news-and-events/</small></th>
+              <td><span class="tag tag--gone">Not carried over</span></td>
+              <td>Its two posts are short guest quotes. Both now appear in the reviews section of the homepage.</td>
+            </tr>
+            <tr>
+              <th scope="row">About Us<small>/about-us/</small></th>
+              <td><a href="about-us.html">About</a><small>about-us.html</small></td>
+              <td>The same wording, owners' photo and listings button, in the new page layout with a booking card alongside.</td>
+            </tr>
+            <tr>
+              <th scope="row">Rental Policies<small>/rental-policies/</small></th>
+              <td><a href="rental-policies.html">Rental Policies</a><small>rental-policies.html</small></td>
+              <td>All 35 items are kept word for word. They are split into two headed sections, Agreement Terms and Conditions and Condo Association Rules, as a numbered list with bullet lists for the pet, pool and beach rules.</td>
+            </tr>
+            <tr>
+              <th scope="row">Guest Reviews<small>/guest-reviews/</small></th>
+              <td><a href="guest-reviews.html">Reviews</a><small>guest-reviews.html</small></td>
+              <td>The published review is carried over, with an average rating summary above it. The plugin's form is replaced by a Write a Review form with the same fields, which sends the review by email for approval.</td>
+            </tr>
+            <tr>
+              <th scope="row">FAQs<small>/faqs/</small></th>
+              <td><a href="faqs.html">FAQs</a><small>faqs.html</small></td>
+              <td>The original page holds placeholder text. The redesign has seven questions in an expandable list. The answers are sample copy awaiting confirmation.</td>
+            </tr>
+            <tr>
+              <th scope="row">Airlines and Car Rentals<small>/airlines-and-car-rentals/</small></th>
+              <td><a href="getting-here.html">Getting Here</a><small>getting-here.html</small></td>
+              <td>The three airport links are kept. New: a short introduction to the area, a map, and a car rental or shuttle link for each airport.</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tag">New</span></th>
+              <td><a href="pet-info.html">Pet Info</a><small>pet-info.html</small></td>
+              <td>The pet policy and pet fines, taken from the Rental Policies, plus pet-friendly things to do around Destin.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SITEMAP ============================== -->
+  <section id="sitemap">
+    <div class="wrap">
+      <h2>Sitemap</h2>
+      <p class="lede">The redesigned site has nine pages. Five are in the main menu and four are under More, and the footer links to all of them.</p>
+      <div class="sitemaps">
+        <div class="sitemap">
+          <h3>Redesigned site</h3>
+          <ul class="tree">
+            <li><a href="index.html">Home</a> <small>index.html</small>
+              <ul>
+                <li class="group">Main menu</li>
+                <li><a href="vacation-rentals.html">Vacation Rentals</a> <small>vacation-rentals.html</small>
+                  <ul><li><small>Embeds the booking engine at destinpetcondos.com/vrp/rentals/vacrentals.htm</small></li></ul>
+                </li>
+                <li><a href="things-to-do.html">Things to Do</a> <small>things-to-do.html</small>
+                  <ul>
+                    <li><small>Local Attractions: Golf, Restaurants, Boat Rentals</small></li>
+                    <li><small>Things to Do With Your Pet</small></li>
+                    <li><small>Events</small></li>
+                  </ul>
+                </li>
+                <li><a href="guest-reviews.html">Reviews</a> <small>guest-reviews.html</small>
+                  <ul>
+                    <li><small>Published reviews</small></li>
+                    <li><small>Write a Review</small></li>
+                  </ul>
+                </li>
+                <li><a href="about-us.html">About</a> <small>about-us.html</small></li>
+                <li class="group">More menu</li>
+                <li><a href="rental-policies.html">Rental Policies</a> <small>rental-policies.html</small>
+                  <ul>
+                    <li><small>Agreement Terms and Conditions</small></li>
+                    <li><small>Condo Association Rules</small></li>
+                  </ul>
+                </li>
+                <li><a href="pet-info.html">Pet Info</a> <small>pet-info.html</small>
+                  <ul>
+                    <li><small>Pet Policy</small></li>
+                    <li><small>Things to Do With Your Pet</small></li>
+                  </ul>
+                </li>
+                <li><a href="faqs.html">FAQs</a> <small>faqs.html</small></li>
+                <li><a href="getting-here.html">Getting Here</a> <small>getting-here.html</small>
+                  <ul>
+                    <li><small>Local Airports</small></li>
+                    <li><small>Car Rental / Shuttles</small></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="group">Not in the menus</li>
+            <li><a href="index-a2.html">Coastal A2</a>, <a href="index-b1.html">Sunny Shoreline B1</a>, <a href="index-b2.html">Sunny Shoreline B2</a> <small>alternate homepage designs</small></li>
+            <li><a href="documentation.html">Documentation</a> <small>documentation.html, this page</small></li>
+          </ul>
+        </div>
+        <div class="sitemap">
+          <h3>Original site, for reference</h3>
+          <ul class="tree">
+            <li>Home <small>/</small>
+              <ul>
+                <li class="group">Main menu</li>
+                <li>Vacation Rentals <small>/vacation-rentals/</small></li>
+                <li>Photo Gallery <small>/photo-gallery/</small></li>
+                <li>Local Attractions <small>/local-attractions/</small></li>
+                <li>News and Events <small>/category/news-and-events/</small></li>
+                <li>About Us <small>/about-us/</small></li>
+                <li class="group">More menu</li>
+                <li>Rental Policies <small>/rental-policies/</small></li>
+                <li>Guest Reviews <small>/guest-reviews/</small></li>
+                <li>FAQs <small>/faqs/</small></li>
+                <li>Airlines and Car Rentals <small>/airlines-and-car-rentals/</small></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== COASTAL A1 ============================== -->
+  <section id="coastal-a1">
+    <div class="wrap">
+      <p class="kicker">Main design</p>
+      <h2>Coastal A1</h2>
+      <p class="design__files"><a href="index.html">index.html</a> · <code>styles.css</code> · <code>site.js</code></p>
+      <p class="lede">Airy and centered. The headline sits above a wide photo, section bands alternate between white sand, seafoam and pale sky, and soft wave dividers separate them. Buttons have 12px corners. This design is used by every inner page.</p>
+
+      <h3>Logo</h3>
+      <div class="logos">
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#FFFFFF">
+            <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><circle cx="14" cy="27" r="5.5" fill="#17324D"/><circle cx="24.5" cy="17" r="5.5" fill="#17324D"/><circle cx="39.5" cy="17" r="5.5" fill="#17324D"/><circle cx="50" cy="27" r="5.5" fill="#17324D"/><path d="M14 45 A18 18 0 0 1 50 45 Z" fill="#17324D"/><path d="M9 51 q5.75 -4 11.5 0 t11.5 0 t11.5 0 t11.5 0" fill="none" stroke="#5E9C90" stroke-width="3.2" stroke-linecap="round"/><path d="M15 58 q4.25 -3 8.5 0 t8.5 0 t8.5 0 t8.5 0" fill="none" stroke="#5E9C90" stroke-width="3.2" stroke-linecap="round"/></svg>
+            <span style="font:500 23px/1.05 'Newsreader',serif;letter-spacing:-0.01em;color:#17324D">Destin Pet Friendly Condos</span>
+          </div>
+          <figcaption>Header, on white</figcaption>
+        </figure>
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#17324D">
+            <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><circle cx="14" cy="27" r="5.5" fill="#FFFFFF"/><circle cx="24.5" cy="17" r="5.5" fill="#FFFFFF"/><circle cx="39.5" cy="17" r="5.5" fill="#FFFFFF"/><circle cx="50" cy="27" r="5.5" fill="#FFFFFF"/><path d="M14 45 A18 18 0 0 1 50 45 Z" fill="#FFFFFF"/><path d="M9 51 q5.75 -4 11.5 0 t11.5 0 t11.5 0 t11.5 0" fill="none" stroke="#9FD3C7" stroke-width="3.2" stroke-linecap="round"/><path d="M15 58 q4.25 -3 8.5 0 t8.5 0 t8.5 0 t8.5 0" fill="none" stroke="#9FD3C7" stroke-width="3.2" stroke-linecap="round"/></svg>
+            <span style="font:500 23px/1.05 'Newsreader',serif;letter-spacing:-0.01em;color:#FFFFFF">Destin Pet Friendly Condos</span>
+          </div>
+          <figcaption>Footer, on Deep Navy</figcaption>
+        </figure>
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#F7F6F3">
+            <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#17324D"/><g transform="translate(32 30) scale(0.92) translate(-32 -32)"><circle cx="13" cy="26.5" r="6.2" fill="#FFFFFF"/><circle cx="24.5" cy="15.5" r="6.2" fill="#FFFFFF"/><circle cx="39.5" cy="15.5" r="6.2" fill="#FFFFFF"/><circle cx="51" cy="26.5" r="6.2" fill="#FFFFFF"/><path d="M13 45 A19 19 0 0 1 51 45 Z" fill="#FFFFFF"/><path d="M9 54 q5.75 -5 11.5 0 t11.5 0 t11.5 0 t11.5 0" fill="none" stroke="#9FD3C7" stroke-width="4.6" stroke-linecap="round"/></g></svg>
+            <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#17324D"/><g transform="translate(32 30) scale(0.92) translate(-32 -32)"><circle cx="13" cy="26.5" r="6.2" fill="#FFFFFF"/><circle cx="24.5" cy="15.5" r="6.2" fill="#FFFFFF"/><circle cx="39.5" cy="15.5" r="6.2" fill="#FFFFFF"/><circle cx="51" cy="26.5" r="6.2" fill="#FFFFFF"/><path d="M13 45 A19 19 0 0 1 51 45 Z" fill="#FFFFFF"/><path d="M9 54 q5.75 -5 11.5 0 t11.5 0 t11.5 0 t11.5 0" fill="none" stroke="#9FD3C7" stroke-width="4.6" stroke-linecap="round"/></g></svg>
+            <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#17324D"/><g transform="translate(32 30) scale(0.92) translate(-32 -32)"><circle cx="13" cy="26.5" r="6.2" fill="#FFFFFF"/><circle cx="24.5" cy="15.5" r="6.2" fill="#FFFFFF"/><circle cx="39.5" cy="15.5" r="6.2" fill="#FFFFFF"/><circle cx="51" cy="26.5" r="6.2" fill="#FFFFFF"/><path d="M13 45 A19 19 0 0 1 51 45 Z" fill="#FFFFFF"/><path d="M9 54 q5.75 -5 11.5 0 t11.5 0 t11.5 0 t11.5 0" fill="none" stroke="#9FD3C7" stroke-width="4.6" stroke-linecap="round"/></g></svg>
+          </div>
+          <figcaption>Site icon at 48, 32 and 16 pixels</figcaption>
+        </figure>
+      </div>
+      <ul class="spec">
+        <li><strong>Mark:</strong> a paw print above two shoreline waves. Paw in Deep Navy <code>#17324D</code>, waves in <code>#5E9C90</code>.</li>
+        <li><strong>Wordmark:</strong> "Destin Pet Friendly Condos" in Newsreader Medium (500), 21px in the header, Deep Navy.</li>
+        <li><strong>On navy:</strong> white paw and wordmark with waves in <code>#9FD3C7</code>.</li>
+        <li><strong>Site icon:</strong> the paw over a single wave on a navy tile, simplified so it stays clear at 16 pixels (<code>favicon.svg</code>, <code>favicon.ico</code>, <code>apple-touch-icon.png</code>).</li>
+      </ul>
+
+      <h3>Color palette</h3>
+      <ul class="swatches">
+        <li style="--c:#FBF8F3"><i></i><b>White Sand</b><span>#FBF8F3</span><small>--sand</small></li>
+        <li style="--c:#E4F1EC"><i></i><b>Seafoam</b><span>#E4F1EC</span><small>--seafoam</small></li>
+        <li style="--c:#E3EEF6"><i></i><b>Pale Sky</b><span>#E3EEF6</span><small>--sky</small></li>
+        <li style="--c:#2F6F64"><i></i><b>Sea Glass</b><span>#2F6F64</span><small>--sea-glass</small></li>
+        <li style="--c:#17324D"><i></i><b>Deep Navy</b><span>#17324D</span><small>--navy</small></li>
+        <li style="--c:#3B4F63"><i></i><b>Slate</b><span>#3B4F63</span><small>--slate</small></li>
+      </ul>
+      <p class="sub">Supporting colors</p>
+      <ul class="swatches swatches--minor">
+        <li style="--c:#FFFFFF"><i></i><b>White</b><span>#FFFFFF</span><small>--white</small></li>
+        <li style="--c:#55606B"><i></i><b>Muted</b><span>#55606B</span><small>--muted</small></li>
+        <li style="--c:#5E9C90"><i></i><b>Wave</b><span>#5E9C90</span><small>--accent-line</small></li>
+        <li style="--c:#9FD3C7"><i></i><b>Light Seafoam</b><span>#9FD3C7</span></li>
+        <li style="--c:#0F2338"><i></i><b>Navy hover</b><span>#0F2338</span><small>--navy-hover</small></li>
+        <li style="--c:#08182A"><i></i><b>Navy pressed</b><span>#08182A</span><small>--navy-active</small></li>
+        <li style="--c:#E7E3DA"><i></i><b>Line</b><span>#E7E3DA</span><small>--line</small></li>
+        <li style="--c:#EEEAE2"><i></i><b>Line soft</b><span>#EEEAE2</span><small>--line-soft</small></li>
+      </ul>
+      <p class="note">Contrast on White Sand: Deep Navy 12.4:1, Slate 8.0:1, Sea Glass 5.5:1. White on the navy button is 13.1:1.</p>
+
+      <h3>Fonts</h3>
+      <div class="fonts">
+        <article class="font">
+          <p class="font__sample" style="font:400 44px/1.05 'Newsreader',serif;letter-spacing:-0.02em">Pet Friendly Condos</p>
+          <p class="font__name">Newsreader</p>
+          <p>Headings, the wordmark and review titles. Regular (400) for headings, Medium (500) for the wordmark. <a href="https://fonts.google.com/specimen/Newsreader">Google Fonts</a></p>
+        </article>
+        <article class="font">
+          <p class="font__sample" style="font:400 18px/1.7 'Karla',sans-serif;color:#3B4F63">Dogs have room to stretch, cats settle in easily, and every condo we rent is set up for animal guests.</p>
+          <p class="font__name">Karla</p>
+          <p>Body text, menus, buttons and labels. Weights 400, 500, 600 and 700. <a href="https://fonts.google.com/specimen/Karla">Google Fonts</a></p>
+        </article>
+      </div>
+      <div class="table-scroll scale">
+        <table>
+          <thead><tr><th scope="col">Style</th><th scope="col">Font</th><th scope="col">Desktop</th><th scope="col">Phone</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Page headline (H1)</th><td>Newsreader 400</td><td>76px, line height 1.04</td><td>44px</td></tr>
+            <tr><th scope="row">Section heading (H2)</th><td>Newsreader 400</td><td>50px, line height 1.1</td><td>34px</td></tr>
+            <tr><th scope="row">Small heading (H3)</th><td>Karla 700</td><td>18px</td><td>17px</td></tr>
+            <tr><th scope="row">Body</th><td>Karla 400</td><td>18px, line height 1.7</td><td>17px</td></tr>
+            <tr><th scope="row">Buttons</th><td>Karla 600</td><td>16px, 48px tall, 12px corners</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="table-scroll">
+        <table class="btn-table btn-table--a1">
+          <thead><tr><th scope="col">Button</th><th scope="col">Default</th><th scope="col">Hover</th><th scope="col">Focus</th><th scope="col">Pressed</th><th scope="col">Disabled</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Primary</th><td><span class="bd bd--p">Book Your Stay</span></td><td><span class="bd bd--p is-hover">Book Your Stay</span></td><td><span class="bd bd--p is-focus">Book Your Stay</span></td><td><span class="bd bd--p is-pressed">Book Your Stay</span></td><td><span class="bd bd--p is-disabled">Book Your Stay</span></td></tr>
+            <tr><th scope="row">Secondary</th><td><span class="bd bd--s">About Us</span></td><td><span class="bd bd--s is-hover">About Us</span></td><td><span class="bd bd--s is-focus">About Us</span></td><td><span class="bd bd--s is-pressed">About Us</span></td><td><span class="bd bd--s is-disabled">About Us</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="spec">
+        <li><strong>Size:</strong> 48px tall with 24px of padding on each side. A large version, 52px tall with 17px text, is used in the hero and the closing section.</li>
+        <li><strong>Shape and type:</strong> 12px corners. Karla SemiBold (600), 16px.</li>
+        <li><strong>Primary:</strong> Deep Navy <code>#17324D</code> with white text. Hover <code>#0F2338</code>. Pressed <code>#08182A</code>, moved down 1px.</li>
+        <li><strong>Secondary:</strong> a 1.5px Deep Navy outline with navy text. Hover fills with Pale Sky <code>#E3EEF6</code>. Pressed fills with <code>#CCDDEA</code> and darkens the outline and text to <code>#0F2338</code>.</li>
+        <li><strong>Focus:</strong> a 3px Sea Glass <code>#2F6F64</code> outline, 3px outside the button.</li>
+        <li><strong>Disabled:</strong> primary is <code>#DCE1E6</code> with <code>#5F6B78</code> text. Secondary is a <code>#C2CAD2</code> outline with <code>#7A8592</code> text.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== COASTAL A2 ============================== -->
+  <section id="coastal-a2">
+    <div class="wrap">
+      <p class="kicker">Alternate design</p>
+      <h2>Coastal A2</h2>
+      <p class="design__files"><a href="index-a2.html">index-a2.html</a> · <code>styles-a2.css</code> · <code>site-a2.js</code></p>
+      <p class="lede">The same calm, navy-led family with a softer feel. The headline sits beside the photo instead of above it, headings are in Lora, buttons are fully rounded pills, and the seafoam is a little stronger.</p>
+
+      <h3>Logo</h3>
+      <div class="logos">
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#FFFFFF;gap:10px">
+            <span style="display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border-radius:50%;background:#CFE8E1;color:#15304B"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="7" cy="8" r="2.4"/><circle cx="12" cy="5.5" r="2.4"/><circle cx="17" cy="8" r="2.4"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.3"/></svg></span>
+            <span style="font:600 21px/1.1 'Lora',serif;color:#15304B">Destin Pet Friendly Condos</span>
+          </div>
+          <figcaption>Header, on white</figcaption>
+        </figure>
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#15304B">
+            <span style="font:600 21px/1.1 'Lora',serif;color:#FFFFFF">Destin Pet Friendly Condos</span>
+          </div>
+          <figcaption>Footer, on Navy (wordmark only)</figcaption>
+        </figure>
+      </div>
+      <ul class="spec">
+        <li><strong>Mark:</strong> a three-toed paw print in Navy <code>#15304B</code>, centered on a round Seafoam <code>#CFE8E1</code> badge (36px in the header).</li>
+        <li><strong>Wordmark:</strong> "Destin Pet Friendly Condos" in Lora SemiBold (600), 19px, Navy. On small screens the header shows the badge alone.</li>
+        <li><strong>Footer:</strong> the wordmark alone, in white on Navy.</li>
+      </ul>
+
+      <h3>Color palette</h3>
+      <ul class="swatches">
+        <li style="--c:#FBF8F2"><i></i><b>Sand</b><span>#FBF8F2</span><small>--sand</small></li>
+        <li style="--c:#CFE8E1"><i></i><b>Seafoam</b><span>#CFE8E1</span><small>--seafoam</small></li>
+        <li style="--c:#E6F3EF"><i></i><b>Seafoam Mist</b><span>#E6F3EF</span><small>--seafoam-mist</small></li>
+        <li style="--c:#DCEBF5"><i></i><b>Sky</b><span>#DCEBF5</span><small>--sky</small></li>
+        <li style="--c:#15304B"><i></i><b>Navy</b><span>#15304B</span><small>--navy</small></li>
+        <li style="--c:#4E6274"><i></i><b>Muted</b><span>#4E6274</span><small>--muted</small></li>
+      </ul>
+      <p class="sub">Supporting colors</p>
+      <ul class="swatches swatches--minor">
+        <li style="--c:#FFFFFF"><i></i><b>White</b><span>#FFFFFF</span><small>--white</small></li>
+        <li style="--c:#7FB6D9"><i></i><b>Focus</b><span>#7FB6D9</span><small>--focus</small></li>
+        <li style="--c:#0F2439"><i></i><b>Navy hover</b><span>#0F2439</span><small>--navy-hover</small></li>
+        <li style="--c:#0A1A2B"><i></i><b>Navy pressed</b><span>#0A1A2B</span><small>--navy-active</small></li>
+        <li style="--c:#E6EBED"><i></i><b>Line</b><span>#E6EBED</span><small>--line</small></li>
+        <li style="--c:#B9CDD6"><i></i><b>Dash</b><span>#B9CDD6</span><small>--dash</small></li>
+        <li style="--c:#C9D6DF"><i></i><b>On navy, soft</b><span>#C9D6DF</span><small>--on-navy-soft</small></li>
+        <li style="--c:#9FB5C4"><i></i><b>On navy, label</b><span>#9FB5C4</span><small>--on-navy-label</small></li>
+        <li style="--c:#C5CFD6"><i></i><b>Disabled</b><span>#C5CFD6</span><small>--disabled</small></li>
+        <li style="--c:#9AA7B0"><i></i><b>Disabled text</b><span>#9AA7B0</span><small>--disabled-text</small></li>
+      </ul>
+      <p class="note">Contrast on Sand: Navy 12.7:1, Muted 6.0:1. White on the navy button is 13.5:1.</p>
+
+      <h3>Fonts</h3>
+      <div class="fonts">
+        <article class="font">
+          <p class="font__sample" style="font:500 40px/1.1 'Lora',serif">Pet Friendly Condos</p>
+          <p class="font__name">Lora</p>
+          <p>Headings and the wordmark. Medium (500) for headings, SemiBold (600) for the wordmark. <a href="https://fonts.google.com/specimen/Lora">Google Fonts</a></p>
+        </article>
+        <article class="font">
+          <p class="font__sample" style="font:400 17px/1.55 'Nunito Sans',sans-serif;color:#4E6274">Gulf view condos with a private beach, heated pools and a gated community, where your pet is as welcome as you are.</p>
+          <p class="font__name">Nunito Sans</p>
+          <p>Body text, menus and buttons. Weights 400, 600 and 700. <a href="https://fonts.google.com/specimen/Nunito+Sans">Google Fonts</a></p>
+        </article>
+      </div>
+      <div class="table-scroll scale">
+        <table>
+          <thead><tr><th scope="col">Style</th><th scope="col">Font</th><th scope="col">Desktop</th><th scope="col">Phone</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Page headline (H1)</th><td>Lora 500</td><td>40 to 54px, scales with the window</td><td>34px</td></tr>
+            <tr><th scope="row">Section heading (H2)</th><td>Lora 500</td><td>30 to 36px</td><td>27px</td></tr>
+            <tr><th scope="row">Body</th><td>Nunito Sans 400</td><td>16px, intro text 17px</td><td>16px</td></tr>
+            <tr><th scope="row">Buttons</th><td>Nunito Sans 600</td><td>16px, 48px tall, pill shape</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="table-scroll">
+        <table class="btn-table btn-table--a2">
+          <thead><tr><th scope="col">Button</th><th scope="col">Default</th><th scope="col">Hover</th><th scope="col">Focus</th><th scope="col">Pressed</th><th scope="col">Disabled</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Primary</th><td><span class="bd bd--p">Book Your Stay</span></td><td><span class="bd bd--p is-hover">Book Your Stay</span></td><td><span class="bd bd--p is-focus">Book Your Stay</span></td><td><span class="bd bd--p is-pressed">Book Your Stay</span></td><td><span class="bd bd--p is-disabled">Book Your Stay</span></td></tr>
+            <tr><th scope="row">Secondary</th><td><span class="bd bd--s">About Us</span></td><td><span class="bd bd--s is-hover">About Us</span></td><td><span class="bd bd--s is-focus">About Us</span></td><td><span class="bd bd--s is-pressed">About Us</span></td><td><span class="bd bd--s is-disabled">About Us</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="spec">
+        <li><strong>Size:</strong> 48px tall with 28px of padding on each side. On phones the header button is 44px tall, and the hero and closing buttons are 52px tall with 17px text at full width.</li>
+        <li><strong>Shape and type:</strong> fully rounded pill. Nunito Sans SemiBold (600), 16px.</li>
+        <li><strong>Primary:</strong> Navy <code>#15304B</code> with white text. Hover <code>#0F2439</code>. Pressed <code>#0A1A2B</code>, moved down 1px.</li>
+        <li><strong>Secondary:</strong> a 1.5px Navy outline with navy text. Hover fills with Seafoam Mist <code>#E6F3EF</code>. Pressed fills with Seafoam <code>#CFE8E1</code>.</li>
+        <li><strong>Focus:</strong> a 3px <code>#7FB6D9</code> outline, 2px outside the button.</li>
+        <li><strong>Disabled:</strong> primary is <code>#C5CFD6</code> with white text. Secondary is a <code>#C5CFD6</code> outline with <code>#9AA7B0</code> text.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== SUNNY SHORELINE B1 ============================== -->
+  <section id="sunny-shoreline-b1">
+    <div class="wrap">
+      <p class="kicker">Alternate design</p>
+      <h2>Sunny Shoreline B1</h2>
+      <p class="design__files"><a href="index-b1.html">index-b1.html</a> · <code>styles-b1.css</code> · <code>site-b1.js</code></p>
+      <p class="lede">Warm and confident. A full-width beach photo carries the headline on a white card, deep teal bands hold the highlights and reviews, and coral is reserved for booking buttons. Headings are bold, in Bricolage Grotesque.</p>
+
+      <h3>Logo</h3>
+      <div class="logos">
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#F6EBDC;gap:10px;color:#0F5E63">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="7" cy="8" r="2.6"/><circle cx="12" cy="5.2" r="2.6"/><circle cx="17" cy="8" r="2.6"/><ellipse cx="12" cy="15.8" rx="5.6" ry="4.6"/></svg>
+            <span style="font:700 22px/1.1 'Bricolage Grotesque',sans-serif;letter-spacing:-0.01em">Destin Pet Friendly Condos</span>
+          </div>
+          <figcaption>Header, on Sand</figcaption>
+        </figure>
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#F6EBDC">
+            <span style="font:700 22px/1.1 'Bricolage Grotesque',sans-serif;color:#0F5E63">Destin Pet Friendly Condos</span>
+          </div>
+          <figcaption>Footer, on Sand (wordmark only)</figcaption>
+        </figure>
+      </div>
+      <ul class="spec">
+        <li><strong>Mark:</strong> a solid three-toed paw print in Teal <code>#0F5E63</code>, 30px in the header, with no badge behind it.</li>
+        <li><strong>Wordmark:</strong> "Destin Pet Friendly Condos" in Bricolage Grotesque Bold (700), 20px, Teal.</li>
+        <li><strong>Footer:</strong> the wordmark alone, in Teal on Sand.</li>
+      </ul>
+
+      <h3>Color palette</h3>
+      <ul class="swatches">
+        <li style="--c:#FFFDF9"><i></i><b>Shell</b><span>#FFFDF9</span><small>--shell</small></li>
+        <li style="--c:#F6EBDC"><i></i><b>Sand</b><span>#F6EBDC</span><small>--sand</small></li>
+        <li style="--c:#0F5E63"><i></i><b>Teal</b><span>#0F5E63</span><small>--teal</small></li>
+        <li style="--c:#C94A33"><i></i><b>Coral</b><span>#C94A33</span><small>--coral</small></li>
+        <li style="--c:#173B3D"><i></i><b>Ink</b><span>#173B3D</span><small>--ink</small></li>
+        <li style="--c:#CDE4E0"><i></i><b>Mist</b><span>#CDE4E0</span><small>--mist</small></li>
+      </ul>
+      <p class="sub">Supporting colors</p>
+      <ul class="swatches swatches--minor">
+        <li style="--c:#E3F0EE"><i></i><b>Mist Light</b><span>#E3F0EE</span><small>--mist-light</small></li>
+        <li style="--c:#4F6466"><i></i><b>Muted</b><span>#4F6466</span><small>--muted</small></li>
+        <li style="--c:#0B474B"><i></i><b>Teal Dark</b><span>#0B474B</span><small>--teal-dark</small></li>
+        <li style="--c:#B03E29"><i></i><b>Coral hover</b><span>#B03E29</span><small>--coral-hover</small></li>
+        <li style="--c:#953421"><i></i><b>Coral pressed</b><span>#953421</span><small>--coral-active</small></li>
+        <li style="--c:#D9CFC2"><i></i><b>Disabled</b><span>#D9CFC2</span><small>--disabled</small></li>
+        <li style="--c:#9A9188"><i></i><b>Disabled text</b><span>#9A9188</span><small>--disabled-text</small></li>
+      </ul>
+      <p class="note">Contrast on Shell: Ink 12.0:1, Teal 7.4:1. White on Teal bands is 7.5:1 and white on the Coral button is 4.7:1.</p>
+
+      <h3>Fonts</h3>
+      <div class="fonts">
+        <article class="font">
+          <p class="font__sample" style="font:700 40px/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-0.02em;color:#0F5E63">Pet Friendly Condos</p>
+          <p class="font__name">Bricolage Grotesque</p>
+          <p>Headings and the wordmark. SemiBold (600) and Bold (700). <a href="https://fonts.google.com/specimen/Bricolage+Grotesque">Google Fonts</a></p>
+        </article>
+        <article class="font">
+          <p class="font__sample" style="font:400 18px/1.55 'Figtree',sans-serif;color:#173B3D">Private beach, heated pools, gated grounds, and every condo welcomes your pet.</p>
+          <p class="font__name">Figtree</p>
+          <p>Body text, menus and buttons. Weights 400, 500 and 600. <a href="https://fonts.google.com/specimen/Figtree">Google Fonts</a></p>
+        </article>
+      </div>
+      <div class="table-scroll scale">
+        <table>
+          <thead><tr><th scope="col">Style</th><th scope="col">Font</th><th scope="col">Desktop</th><th scope="col">Phone</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Page headline (H1)</th><td>Bricolage Grotesque 700</td><td>50px, line height 1.05</td><td>32px</td></tr>
+            <tr><th scope="row">Section heading (H2)</th><td>Bricolage Grotesque 700</td><td>40px, line height 1.1</td><td>30px</td></tr>
+            <tr><th scope="row">Body</th><td>Figtree 400</td><td>16 to 18px</td><td>16 to 18px</td></tr>
+            <tr><th scope="row">Buttons</th><td>Figtree 600</td><td>16px, 48px tall, 10px corners</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="table-scroll">
+        <table class="btn-table btn-table--b1">
+          <thead><tr><th scope="col">Button</th><th scope="col">Default</th><th scope="col">Hover</th><th scope="col">Focus</th><th scope="col">Pressed</th><th scope="col">Disabled</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Primary</th><td><span class="bd bd--p">Book Your Stay</span></td><td><span class="bd bd--p is-hover">Book Your Stay</span></td><td><span class="bd bd--p is-focus">Book Your Stay</span></td><td><span class="bd bd--p is-pressed">Book Your Stay</span></td><td><span class="bd bd--p is-disabled">Book Your Stay</span></td></tr>
+            <tr><th scope="row">Secondary</th><td><span class="bd bd--s">About Us</span></td><td><span class="bd bd--s is-hover">About Us</span></td><td><span class="bd bd--s is-focus">About Us</span></td><td><span class="bd bd--s is-pressed">About Us</span></td><td><span class="bd bd--s is-disabled">About Us</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="spec">
+        <li><strong>Size:</strong> 48px tall with 26px of padding on each side. A large version, 52px tall with 17px text, is used in the closing section, and on phones for the hero buttons at full width.</li>
+        <li><strong>Shape and type:</strong> 10px corners. Figtree SemiBold (600), 16px.</li>
+        <li><strong>Primary:</strong> Coral <code>#C94A33</code> with white text. Hover <code>#B03E29</code>. Pressed <code>#953421</code>, moved down 1px.</li>
+        <li><strong>Secondary:</strong> a 2px Teal <code>#0F5E63</code> outline with teal text. Hover fills with Mist Light <code>#E3F0EE</code>. Pressed fills with Mist <code>#CDE4E0</code>.</li>
+        <li><strong>Focus:</strong> a 3px outline in Teal at 40% opacity, 2px outside the button. On teal bands the outline is white at 70% opacity.</li>
+        <li><strong>Disabled:</strong> primary is <code>#D9CFC2</code> with white text. Secondary is a <code>#D9CFC2</code> outline with <code>#9A9188</code> text.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== SUNNY SHORELINE B2 ============================== -->
+  <section id="sunny-shoreline-b2">
+    <div class="wrap">
+      <p class="kicker">Alternate design</p>
+      <h2>Sunny Shoreline B2</h2>
+      <p class="design__files"><a href="index-b2.html">index-b2.html</a> · <code>styles-b2.css</code> · <code>site-b2.js</code></p>
+      <p class="lede">The boldest of the four. Extra-bold headlines sit beside a photo with a curved edge and a trail of paw prints, buttons are pills, and a house-and-paw logo replaces the plain paw. The footer is deep teal.</p>
+
+      <h3>Logo</h3>
+      <div class="logos">
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#FBF6EE;gap:10px;color:#0D5C63">
+            <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><path d="M7 31 L32 9 L57 31" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 27 V55 H50 V27" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#D9A15F"><ellipse cx="32" cy="44" rx="7.5" ry="6.2"/><circle cx="22.5" cy="35" r="3.2"/><circle cx="28.5" cy="29.5" r="3.2"/><circle cx="35.5" cy="29.5" r="3.2"/><circle cx="41.5" cy="35" r="3.2"/></g></svg>
+            <span style="font:800 21px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-0.02em">Destin Pet<br>Friendly Condos</span>
+          </div>
+          <figcaption>Header, on Shell</figcaption>
+        </figure>
+        <figure class="logo-box">
+          <div class="logo-box__art" style="background:#08434A;gap:12px;color:#FFFFFF">
+            <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><path d="M7 31 L32 9 L57 31" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 27 V55 H50 V27" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#E8B97E"><ellipse cx="32" cy="44" rx="7.5" ry="6.2"/><circle cx="22.5" cy="35" r="3.2"/><circle cx="28.5" cy="29.5" r="3.2"/><circle cx="35.5" cy="29.5" r="3.2"/><circle cx="41.5" cy="35" r="3.2"/></g></svg>
+            <span style="font:800 21px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-0.02em">Destin Pet<br>Friendly Condos</span>
+          </div>
+          <figcaption>Footer, on Teal Deep</figcaption>
+        </figure>
+      </div>
+      <ul class="spec">
+        <li><strong>Mark:</strong> a house outline with a paw print inside. Outline in Teal <code>#0D5C63</code>, paw in Driftwood <code>#D9A15F</code>. 36px in the header.</li>
+        <li><strong>Wordmark:</strong> "Destin Pet Friendly Condos" on two lines in Bricolage Grotesque ExtraBold (800), 16px in the header, Teal.</li>
+        <li><strong>Footer:</strong> white outline and wordmark with the paw in Driftwood Light <code>#E8B97E</code>, on Teal Deep. The mark is 44px and the wordmark 21px.</li>
+        <li><strong>Rule:</strong> Driftwood is for the logo paw and the paw-print trail only, never for text.</li>
+      </ul>
+
+      <h3>Color palette</h3>
+      <ul class="swatches">
+        <li style="--c:#FBF6EE"><i></i><b>Shell</b><span>#FBF6EE</span><small>--shell</small></li>
+        <li style="--c:#F5EBDD"><i></i><b>Sand</b><span>#F5EBDD</span><small>--sand</small></li>
+        <li style="--c:#0D5C63"><i></i><b>Teal</b><span>#0D5C63</span><small>--teal</small></li>
+        <li style="--c:#08434A"><i></i><b>Teal Deep</b><span>#08434A</span><small>--teal-deep</small></li>
+        <li style="--c:#C2502F"><i></i><b>Coral</b><span>#C2502F</span><small>--coral</small></li>
+        <li style="--c:#D9A15F"><i></i><b>Driftwood</b><span>#D9A15F</span><small>--driftwood</small></li>
+        <li style="--c:#3E4A4C"><i></i><b>Text</b><span>#3E4A4C</span><small>--text</small></li>
+      </ul>
+      <p class="sub">Supporting colors</p>
+      <ul class="swatches swatches--minor">
+        <li style="--c:#F1E4D0"><i></i><b>Sand Deep</b><span>#F1E4D0</span><small>--sand-deep</small></li>
+        <li style="--c:#EADBC5"><i></i><b>Sand Line</b><span>#EADBC5</span><small>--sand-line</small></li>
+        <li style="--c:#E8B97E"><i></i><b>Driftwood Light</b><span>#E8B97E</span><small>--driftwood-light</small></li>
+        <li style="--c:#052F34"><i></i><b>Teal Ink</b><span>#052F34</span><small>--teal-ink</small></li>
+        <li style="--c:#2B7178"><i></i><b>Teal Line</b><span>#2B7178</span><small>--teal-line</small></li>
+        <li style="--c:#5E9599"><i></i><b>Teal Soft</b><span>#5E9599</span><small>--teal-soft</small></li>
+        <li style="--c:#E3F0EF"><i></i><b>Teal Tint</b><span>#E3F0EF</span><small>--teal-tint</small></li>
+        <li style="--c:#C9E1DF"><i></i><b>Teal Tint Strong</b><span>#C9E1DF</span><small>--teal-tint-strong</small></li>
+        <li style="--c:#D7E8E7"><i></i><b>On Teal</b><span>#D7E8E7</span><small>--on-teal</small></li>
+        <li style="--c:#A6421F"><i></i><b>Coral hover</b><span>#A6421F</span><small>--coral-hover</small></li>
+        <li style="--c:#8C3719"><i></i><b>Coral pressed</b><span>#8C3719</span><small>--coral-active</small></li>
+        <li style="--c:#5A5348"><i></i><b>Text Muted</b><span>#5A5348</span><small>--text-muted</small></li>
+        <li style="--c:#FFFFFF"><i></i><b>White</b><span>#FFFFFF</span><small>--white</small></li>
+      </ul>
+      <p class="note">Contrast on Shell: Teal Deep 10.2:1, Text 8.5:1, Teal 7.2:1. White on the Coral button is 4.7:1 and white on the Teal Deep footer is 11.0:1. Driftwood is 2.1:1 on Shell, which is why it is never used for text.</p>
+
+      <h3>Fonts</h3>
+      <div class="fonts">
+        <article class="font">
+          <p class="font__sample" style="font:800 42px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-0.035em;color:#08434A">Pet Friendly Condos</p>
+          <p class="font__name">Bricolage Grotesque</p>
+          <p>Headings, the wordmark and footer headings. ExtraBold (800) for headlines, Bold (700) for small headings. <a href="https://fonts.google.com/specimen/Bricolage+Grotesque">Google Fonts</a></p>
+        </article>
+        <article class="font">
+          <p class="font__sample" style="font:400 17px/1.6 'Nunito Sans',sans-serif;color:#3E4A4C">Gulf view condos in the gated Maravilla community, a short stroll from a private beach, where your dog, cat, or other pet is welcome in every unit.</p>
+          <p class="font__name">Nunito Sans</p>
+          <p>Body text, menus and buttons. Weights 400 to 800, with Bold (700) for buttons. <a href="https://fonts.google.com/specimen/Nunito+Sans">Google Fonts</a></p>
+        </article>
+      </div>
+      <div class="table-scroll scale">
+        <table>
+          <thead><tr><th scope="col">Style</th><th scope="col">Font</th><th scope="col">Desktop</th><th scope="col">Phone</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Page headline (H1)</th><td>Bricolage Grotesque 800</td><td>Up to 80px, scales with the window</td><td>46px</td></tr>
+            <tr><th scope="row">Section heading (H2)</th><td>Bricolage Grotesque 800</td><td>Up to 56px</td><td>34px</td></tr>
+            <tr><th scope="row">Body</th><td>Nunito Sans 400</td><td>17px, line height 1.6</td><td>17px</td></tr>
+            <tr><th scope="row">Buttons</th><td>Nunito Sans 700</td><td>16px, 48px tall, pill shape</td><td>16px</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="table-scroll">
+        <table class="btn-table btn-table--b2">
+          <thead><tr><th scope="col">Button</th><th scope="col">Default</th><th scope="col">Hover</th><th scope="col">Focus</th><th scope="col">Pressed</th><th scope="col">Disabled</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Primary</th><td><span class="bd bd--p">Book Your Stay</span></td><td><span class="bd bd--p is-hover">Book Your Stay</span></td><td><span class="bd bd--p is-focus">Book Your Stay</span></td><td><span class="bd bd--p is-pressed">Book Your Stay</span></td><td><span class="bd bd--p is-disabled">Book Your Stay</span></td></tr>
+            <tr><th scope="row">Secondary</th><td><span class="bd bd--s">About Us</span></td><td><span class="bd bd--s is-hover">About Us</span></td><td><span class="bd bd--s is-focus">About Us</span></td><td><span class="bd bd--s is-pressed">About Us</span></td><td><span class="bd bd--s is-disabled">About Us</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="spec">
+        <li><strong>Size:</strong> 48px tall with 24px of padding on each side. A large version, 54px tall with 17px text, is used in the hero and the closing section. On phones the header button is 44px tall.</li>
+        <li><strong>Shape and type:</strong> fully rounded pill. Nunito Sans Bold (700), 16px.</li>
+        <li><strong>Primary:</strong> Coral <code>#C2502F</code> with white text. Hover <code>#A6421F</code>. Pressed <code>#8C3719</code>, moved down 1px.</li>
+        <li><strong>Secondary:</strong> a 2px Teal <code>#0D5C63</code> outline with teal text. Hover fills with Teal Tint <code>#E3F0EF</code>. Pressed fills with <code>#C9E1DF</code>, darkens the outline and text to Teal Deep <code>#08434A</code> and moves down 1px.</li>
+        <li><strong>Focus:</strong> a 3px Teal <code>#0D5C63</code> outline, 3px outside the button. On teal surfaces the outline is white.</li>
+        <li><strong>Disabled:</strong> primary is <code>#E5DCCF</code> with <code>#6E6458</code> text. Secondary is a <code>#CFC6B8</code> outline with <code>#857B6E</code> text.</li>
+      </ul>
+      <div class="note">
+        <p>The menu in this design differs from the others: under More it lists Property Owners in place of Pet Info.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ADDITIONAL LOGO OPTIONS ============================== -->
+  <section id="logo-options">
+    <div class="wrap">
+      <h2>Additional logo options</h2>
+      <p class="lede">Seven further logo options. The first four are shown as they would sit in the header of each design family: Option A is Coastal and Option B is Sunny Shoreline.</p>
+
+      <!-- The four marks from the Logo Concepts design file, drawn once here and reused in both colorways below. -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="mark-1" viewBox="0 0 64 64"><circle class="m1" cx="14" cy="27" r="5.5"/><circle class="m1" cx="24.5" cy="17" r="5.5"/><circle class="m1" cx="39.5" cy="17" r="5.5"/><circle class="m1" cx="50" cy="27" r="5.5"/><path class="m1" d="M14 45 A18 18 0 0 1 50 45 Z"/><path class="m2s" d="M9 51 q5.75 -4 11.5 0 t11.5 0 t11.5 0 t11.5 0" stroke-width="3.2" stroke-linecap="round"/><path class="m2s" d="M15 58 q4.25 -3 8.5 0 t8.5 0 t8.5 0 t8.5 0" stroke-width="3.2" stroke-linecap="round"/></symbol>
+        <symbol id="mark-2" viewBox="0 0 64 64"><path class="m1s" d="M7 31 L32 9 L57 31" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path class="m1s" d="M14 27 V55 H50 V27" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><ellipse class="m2" cx="32" cy="44" rx="7.5" ry="6.2"/><circle class="m2" cx="22.5" cy="35" r="3.2"/><circle class="m2" cx="28.5" cy="29.5" r="3.2"/><circle class="m2" cx="35.5" cy="29.5" r="3.2"/><circle class="m2" cx="41.5" cy="35" r="3.2"/></symbol>
+        <symbol id="mark-3" viewBox="0 0 64 64"><rect class="m3" x="4" y="4" width="56" height="56" rx="14"/><path class="m2" d="M5.5 45 Q18.5 39 32 45 T58.5 45 V46 Q58.5 58.5 46 58.5 H18 Q5.5 58.5 5.5 46 Z"/><ellipse class="m1" cx="31" cy="29" rx="7.5" ry="6.5"/><circle class="m1" cx="21" cy="21" r="3.4"/><circle class="m1" cx="27" cy="15" r="3.4"/><circle class="m1" cx="35" cy="15" r="3.4"/><circle class="m1" cx="41" cy="21" r="3.4"/></symbol>
+        <symbol id="mark-4" viewBox="0 0 64 64"><circle class="m3" cx="32" cy="30" r="17"/><circle class="m1" cx="22" cy="36" r="6.5"/><path class="m1" d="M16 34 L16.5 25 L22 30 Z"/><path class="m1" d="M28 34 L27.5 25 L22 30 Z"/><circle class="m1" cx="42" cy="35" r="7.5"/><ellipse class="m1" cx="35" cy="35.5" rx="2.8" ry="5.5"/><ellipse class="m1" cx="49" cy="35.5" rx="2.8" ry="5.5"/><rect class="m1" x="6" y="41" width="52" height="3.5" rx="1.75"/><path class="m2s" d="M12 51 q5 -3.5 10 0 t10 0 t10 0 t10 0" stroke-width="3" stroke-linecap="round"/><path class="m2s" d="M20 57.5 q3 -2.5 6 0 t6 0 t6 0 t6 0" stroke-width="3" stroke-linecap="round"/></symbol>
+      </svg>
+
+      <div class="logo-options">
+        <article class="logo-option">
+          <h3>Option 1 <small>Paw formed by sun and waves</small></h3>
+          <div class="lockup-row lockup-row--a">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-1"/></svg><span class="lockup__name wm-1">Destin Pet Friendly Condos</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option A</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+          <div class="lockup-row lockup-row--b">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-1"/></svg><span class="lockup__name wm-1">Destin Pet Friendly Condos</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option B</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+        </article>
+
+        <article class="logo-option">
+          <h3>Option 2 <small>Condo roofline with a paw</small></h3>
+          <div class="lockup-row lockup-row--a">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-2"/></svg><span class="lockup__name wm-2">Destin Pet Friendly Condos</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option A</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+          <div class="lockup-row lockup-row--b">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-2"/></svg><span class="lockup__name wm-2">Destin Pet Friendly Condos</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option B</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+        </article>
+
+        <article class="logo-option">
+          <h3>Option 3 <small>Paw print in sand at the shoreline</small></h3>
+          <div class="lockup-row lockup-row--a">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-3"/></svg><span class="lockup__name wm-3">The Destin Connection</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option A</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+          <div class="lockup-row lockup-row--b">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-3"/></svg><span class="lockup__name wm-3">The Destin Connection</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option B</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+        </article>
+
+        <article class="logo-option">
+          <h3>Option 4 <small>Dog and cat on the beach horizon</small></h3>
+          <div class="lockup-row lockup-row--a">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-4"/></svg><span class="lockup__name wm-4">The Destin Connection</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option A</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+          <div class="lockup-row lockup-row--b">
+            <span class="lockup"><svg aria-hidden="true"><use href="#mark-4"/></svg><span class="lockup__name wm-4">The Destin Connection</span></span>
+            <span class="lockup-row__side"><span class="lockup-row__label">in Option B</span><span class="lockup-row__btn">Book Now</span></span>
+          </div>
+        </article>
+
+        <!-- Options 5 to 7 are redrawn from screenshots, so their shapes and colors are close matches rather than the original artwork. -->
+        <article class="logo-option">
+          <h3>Option 5</h3>
+          <div class="lockup-card" style="background:#FAF7F2;color:#1F3350">
+            <svg width="68" height="82" viewBox="0 0 76 92" aria-hidden="true"><circle cx="14" cy="24" r="10" fill="#EDC466"/><circle cx="38" cy="12" r="10" fill="#EDC466"/><circle cx="62" cy="24" r="10" fill="#EDC466"/><path d="M8 67 A30 30 0 0 1 68 67 Z" fill="#EDC466"/><path d="M4 69 q8.5 -7 17 0 t17 0 t17 0 t17 0" fill="none" stroke="#6FB1B5" stroke-width="7" stroke-linecap="round"/><path d="M4 84 q8.5 -7 17 0 t17 0 t17 0 t17 0" fill="none" stroke="#1F3350" stroke-width="7" stroke-linecap="round"/></svg>
+            <span class="lockup-card__text"><span style="font:700 38px/1 'Lora',serif">Destin</span><span class="lockup-card__caps">Pet Friendly Condos</span></span>
+          </div>
+        </article>
+
+        <article class="logo-option">
+          <h3>Option 6</h3>
+          <div class="lockup-card" style="background:#FAF7F2;color:#1F3350">
+            <svg width="76" height="76" viewBox="0 0 64 64" aria-hidden="true"><path d="M7 31 L32 9 L57 31" fill="none" stroke="#1F3350" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 27 V55 H50 V27" fill="none" stroke="#1F3350" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="32" cy="44.5" rx="7.5" ry="6.2" fill="#6FB1B5"/><circle cx="23.5" cy="36" r="3.4" fill="#6FB1B5"/><circle cx="32" cy="31.5" r="3.4" fill="#6FB1B5"/><circle cx="40.5" cy="36" r="3.4" fill="#6FB1B5"/></svg>
+            <span style="font:700 32px/1.2 'Lora',serif">Destin Pet Friendly<br><span style="color:#6FB1B5">Condos</span></span>
+          </div>
+        </article>
+
+        <article class="logo-option">
+          <h3>Option 7</h3>
+          <div class="lockup-card" style="background:#F3EBDD;color:#2A5F63">
+            <svg width="100" height="77" viewBox="0 0 114 88" aria-hidden="true"><circle cx="38" cy="32" r="24.5" fill="none" stroke="#2A5F63" stroke-width="7"/><circle cx="76" cy="32" r="24.5" fill="none" stroke="#5CA394" stroke-width="7"/><circle cx="57" cy="37" r="4.5" fill="#2A5F63"/><path d="M4 81 H110" fill="none" stroke="#2A5F63" stroke-width="7" stroke-linecap="round"/></svg>
+            <span class="lockup-card__text"><span class="lockup-card__caps">The</span><span style="font:700 36px/1.05 'Lora',serif">Destin Connection</span></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
