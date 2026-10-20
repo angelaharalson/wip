@@ -17,8 +17,8 @@
   --disabled-text: #9A9188;
   --ring: rgba(15, 94, 99, .4);
 
-  --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Figtree', system-ui, sans-serif;
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
   --font-note: ui-monospace, Menlo, monospace;
 
   /* 72px side gutters at 1280; content stays 1136px wide on larger screens */

@@ -3,136 +3,193 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pet Friendly Condos in Destin, Florida | Maravilla Vacation Rentals</title>
-<meta name="description" content="Pet friendly Gulf view condos in the gated Maravilla community in Destin, Florida. Private beach, heated pools, and every condo welcomes your dog, cat, or other pet.">
+<title>Pet Friendly Condos in Destin, FL | Private Beach Rentals</title>
+<meta name="description" content="Pet friendly vacation condos in Destin, Florida with a private beach, heated pools and a gated community. Dogs, cats and more welcome. Book your stay.">
 <link rel="icon" href="images/favicon.ico" sizes="32x32">
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-site.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body data-page="home">
+<body class="page--sand">
 <a class="skip-link" href="#main">Skip to content</a>
-<div data-site-header></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Destin Pet Friendly Condos, home">
+      <!-- Logo: paw over two shoreline waves -->
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle cx="14" cy="27" r="5.5" fill="#17324D"></circle><circle cx="24.5" cy="17" r="5.5" fill="#17324D"></circle>
+        <circle cx="39.5" cy="17" r="5.5" fill="#17324D"></circle><circle cx="50" cy="27" r="5.5" fill="#17324D"></circle>
+        <path d="M14 45 A18 18 0 0 1 50 45 Z" fill="#17324D"></path>
+        <path d="M9 51 q5.75 -4 11.5 0 t11.5 0 t11.5 0 t11.5 0" fill="none" stroke="#5E9C90" stroke-width="3.2" stroke-linecap="round"></path>
+        <path d="M15 58 q4.25 -3 8.5 0 t8.5 0 t8.5 0 t8.5 0" fill="none" stroke="#5E9C90" stroke-width="3.2" stroke-linecap="round"></path>
+      </svg>
+      <span class="brand__name"><span class="brand__line">Destin Pet</span> <span class="brand__line">Friendly Condos</span></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="site-nav__link" href="vacation-rentals.html">Vacation Rentals</a></li>
+        <li><a class="site-nav__link" href="things-to-do.html">Things to Do</a></li>
+        <li><a class="site-nav__link" href="guest-reviews.html">Reviews</a></li>
+        <li><a class="site-nav__link" href="about-us.html">About</a></li>
+        <li class="site-nav__more">
+          <button class="site-nav__link site-nav__more-toggle" type="button" aria-expanded="false" aria-controls="nav-more">More <span class="site-nav__caret" aria-hidden="true">▾</span></button>
+          <ul class="site-nav__submenu" id="nav-more">
+            <li><a href="rental-policies.html">Rental Policies</a></li>
+            <li><a href="pet-info.html">Pet Info</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="getting-here.html">Getting Here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary btn--header" href="vacation-rentals.html">Book Now</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
 <main id="main">
 
-  <section class="wrap hero">
-    <p class="eyebrow">Maravilla · Destin, Florida</p>
-    <h1 class="h1">Pet Friendly Condos in Destin, Florida</h1>
-    <p class="lede">Gulf view condos in the gated Maravilla community, a short stroll from a private beach, where your dog, cat, or other pet is welcome in every unit.</p>
-    <div class="hero__ctas">
-      <a class="btn btn--primary btn--lg" href="vacation-rentals.html">View Properties</a>
-      <a class="btn btn--secondary btn--lg" href="about-us.html">About Us</a>
-    </div>
-    <!-- Replace with <img> of the hero photo, alt text below -->
-      <img src="images/beach-sunset.jpg" class="photo hero__photo" role="img" aria-label="Gulf of Mexico view over the white sand beach in Destin, Florida" />
-      <!--<span class="photo__note">hero photo · alt: "Gulf of Mexico view over the white sand beach from a Maravilla condo balcony in Destin, Florida"</span>-->
-    
-  </section>
-
-  <section class="wrap trust-section" aria-label="Highlights">
-    <ul class="trust">
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/paw-print.svg)" aria-hidden="true"></span>Every Condo Is Pet Friendly</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/umbrella.svg)" aria-hidden="true"></span>Private Beach</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/shield-check.svg)" aria-hidden="true"></span>Gated Community</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/waves.svg)" aria-hidden="true"></span>Heated Pools and Hot Tub</li>
-    </ul>
-  </section>
-
-  <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true"><path d="M0 36 C240 72 480 0 720 36 C960 72 1200 0 1440 36 V72 H0 Z" fill="#E4F1EC"/></svg>
-  <section class="band-seafoam" aria-labelledby="pets-title">
-    <div class="wrap pets">
-        <!--<span class="photo__note">photo · alt: "Guest walking a dog along the paved bike path beside the green space at Maravilla"</span>-->
-        <img src="images/maravilla-1.jpg" class="photo photo--seafoam pets__photo" role="img" aria-label="Paved bike path beside the green space at Maravilla" />
-      <div class="pets__head">
-        <p class="eyebrow">Traveling with pets</p>
-        <h2 class="h2" id="pets-title">Destin Vacation Rentals That Welcome Every Pet</h2>
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <h1>Pet Friendly Condos in Destin, Florida</h1>
+        <p class="hero__lead">Gulf view condos with a private beach, heated pools and a gated community, where your pet is as welcome as you are.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--fluid" href="vacation-rentals.html">View Properties</a>
+          <a class="btn btn--secondary btn--fluid" href="about-us.html">About Us</a>
+        </div>
       </div>
-      <div class="pets__body">
-        <p class="body">Maravilla was made for travelers who bring their pets along. Dogs have room to stretch, cats settle in easily, and every condo we rent is set up for animal guests, so no one has to stay home.</p>
-        <ul class="features">
-          <li>
-            <span class="features__icon"><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/trees.svg)" aria-hidden="true"></span></span>
-            <div><h3>Open green space</h3><p>Lawns for a game of fetch or a slow sniff around.</p></div>
-          </li>
-          <li>
-            <span class="features__icon"><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/footprints.svg)" aria-hidden="true"></span></span>
-            <div><h3>Pet walk area</h3><p>A dedicated spot for quick morning and evening walks.</p></div>
-          </li>
-          <li>
-            <span class="features__icon"><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/bike.svg)" aria-hidden="true"></span></span>
-            <div><h3>Bike path</h3><p>A paved path through the community for longer strolls.</p></div>
-          </li>
+      <!-- Sunset shot on mobile; the umbrella shot fills the desktop hero -->
+      <picture>
+        <source media="(min-width: 900px)" srcset="images/beach.jpg" width="1920" height="1440">
+        <img class="photo hero__photo" src="images/beach-sunset-2.jpg" width="1816" height="1440" alt="White sand beach and the emerald Gulf in Destin, Florida">
+      </picture>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="container trust__inner">
+      <h2>Pet Friendly Beach Rentals on Florida's Emerald Coast</h2>
+      <ul class="trust__list">
+        <li class="trust__item"><span class="trust__icon trust__icon--paw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="7" cy="8" r="2"></circle><circle cx="12" cy="5.5" r="2"></circle><circle cx="17" cy="8" r="2"></circle><ellipse cx="12" cy="15.5" rx="5" ry="4"></ellipse></svg></span>Every Condo Is Pet Friendly</li>
+        <li class="trust__item"><span class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M3 11 A9 9 0 0 1 21 11 Z"></path><path d="M12 11 V21"></path><path d="M2 21 H22"></path></svg></span>Private Beach</li>
+        <li class="trust__item"><span class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="1"></rect><path d="M7 8 V21 M12 8 V21 M17 8 V21 M3 4 H21"></path></svg></span>Gated Community</li>
+        <li class="trust__item"><span class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="3"></circle><path d="M3 15 C 6 13, 9 17, 12 15 S 18 13, 21 15"></path><path d="M3 19 C 6 17, 9 21, 12 19 S 18 17, 21 19"></path></svg></span>Heated Pools and Hot Tub</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pets">
+    <div class="container pets__inner">
+      <img class="photo pets__photo" src="images/maravilla-1.jpg" width="1035" height="1281" loading="lazy" alt="Palm trees, green lawns and the emerald Gulf seen from Maravilla in Destin, Florida">
+      <div class="pets__copy">
+        <div class="paw-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <h2 class="section-title">Destin Rentals That Allow Dogs, Cats and More</h2>
+        <p>Most Destin vacation rentals turn pets away. Ours welcome them. Maravilla's wide green spaces, dedicated pet walk area and bike path mean morning walks happen steps from your door, not across a parking lot.</p>
+        <ul class="dot-list">
+          <li><svg class="dot-list__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path><path d="M7 16v6"></path><path d="M13 19v3"></path><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"></path></svg>Open green space</li>
+          <li><svg class="dot-list__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"></path><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"></path><path d="M16 17h4"></path><path d="M4 13h4"></path></svg>Dedicated pet walk area</li>
+          <li><svg class="dot-list__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg>Paved bike path</li>
         </ul>
-        <div class="pets__links">
-          <a class="text-link" href="pet-info.html#pet-policy">Read our pet policy</a>
-          <a class="text-link" href="pet-info.html#things-to-do-with-pets">Things to do with your pet</a>
+        <div class="link-row">
+          <a class="link" href="pet-info.html">Read our pet policy</a>
+          <a class="link" href="pet-info.html#things-to-do-with-pets">Things to do with your pet</a>
         </div>
       </div>
     </div>
   </section>
-  <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" style="background:#E4F1EC"><path d="M0 36 C240 72 480 0 720 36 C960 72 1200 0 1440 36 V72 H0 Z" fill="#FBF8F3"/></svg>
 
-  <section class="wrap location" aria-labelledby="location-title">
-    <div class="section-head">
-      <h2 class="h2" id="location-title">Gulf View Condos in Destin, Close to Everything</h2>
-      <p class="body">Resort amenities on site, a private beach steps away, and some of Destin's favorite restaurants and shops within easy reach.</p>
-    </div>
-    <ul class="amenities">
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/sunset.svg)" aria-hidden="true"></span>Gulf views</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/armchair.svg)" aria-hidden="true"></span>Complimentary beach chairs and umbrellas</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/circle-dot.svg)" aria-hidden="true"></span>Pickleball and tennis courts</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/dumbbell.svg)" aria-hidden="true"></span>Fitness room</li>
-      <li><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/flame.svg)" aria-hidden="true"></span>Outdoor grills</li>
-    </ul>
-    <div class="nearby">
-      <img src="images/destin.jpg" class="photo photo--sky nearby__map" role="img" aria-label="Map of Maravilla in Destin with nearby restaurants and shopping" />
-      <div class="nearby__lists">
-        <div>
-          <h3><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/utensils.svg)" aria-hidden="true"></span>Walk to dinner</h3>
-          <ul><li>Pompano Joe's</li><li>Kenny D's</li><li>Captain Dave's</li></ul>
-        </div>
-        <div>
-          <h3><span class="icon" style="--i:url(https://unpkg.com/lucide-static@0.460.0/icons/shopping-bag.svg)" aria-hidden="true"></span>Shopping nearby</h3>
-          <ul><li>Silver Sands Outlets</li><li>Destin Commons</li><li>HarborWalk Village</li></ul>
-        </div>
-        <a class="btn btn--secondary" href="things-to-do.html">Explore Destin</a>
+  <section class="amenities">
+    <div class="container amenities__inner">
+      <div class="amenities__intro">
+        <h2 class="section-title">Gulf View Condos in Destin with a Private Beach</h2>
+        <a class="btn btn--secondary amenities__cta" href="things-to-do.html">Explore Destin</a>
+      </div>
+      <div class="amenities__grid">
+        <div class="amenity"><h3 class="amenity__title">Gulf views</h3><p class="amenity__desc">Watch the water from your balcony.</p></div>
+        <div class="amenity"><h3 class="amenity__title">Beach chairs and umbrellas</h3><p class="amenity__desc">Complimentary, set up for you in season.</p></div>
+        <div class="amenity"><h3 class="amenity__title">Pickleball and tennis</h3><p class="amenity__desc">Courts on site, open daily.</p></div>
+        <div class="amenity"><h3 class="amenity__title">Fitness room</h3><p class="amenity__desc">Keep your routine on vacation.</p></div>
+        <div class="amenity"><h3 class="amenity__title">Outdoor grills</h3><p class="amenity__desc">Cook the day's catch by the pool.</p></div>
+        <div class="amenity amenity--wide"><h3 class="amenity__title">Dinner and shopping</h3><p class="amenity__desc">Restaurants and shopping are a short walk or car ride.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="band-sky" aria-labelledby="reviews-title">
-    <div class="wrap reviews">
-      <h2 class="h2" id="reviews-title">What Guests Say About Our Destin Condos</h2>
+  <section class="reviews">
+    <div class="container reviews__inner">
+      <h2 class="section-title">What Guests Say About Our Maravilla Destin Condos</h2>
       <div class="reviews__grid">
-        <figure class="review">
-          <span class="review__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
-          <blockquote><p class="review__title">“Awesome place”</p><p class="review__text">Loved it!</p></blockquote>
-          <figcaption>Guest review</figcaption>
-        </figure>
-        <figure class="review">
-          <span class="review__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
-          <blockquote><p class="review__title">“Clean and immaculate”</p><p class="review__text">Very impressed with the cleanliness of the unit.</p></blockquote>
-          <figcaption>Guest review</figcaption>
-        </figure>
+        <figure class="review"><div class="review__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Awesome place. Loved it!</blockquote><figcaption>Verified guest</figcaption></figure>
+        <figure class="review"><div class="review__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Clean, immaculate. Very impressed with the cleanliness of the unit.</blockquote><figcaption>Verified guest</figcaption></figure>
+        <!-- Placeholder. Replace with a third <figure class="review"> once a real guest review is available. -->
+        <div class="review review--slot">slot for a third real guest review</div>
       </div>
-      <div class="reviews__more"><a class="text-link" href="guest-reviews.html">Read all guest reviews</a></div>
+      <a class="link reviews__more" href="guest-reviews.html">Read all reviews</a>
     </div>
   </section>
 
-  <section class="wrap closing" aria-labelledby="closing-title">
-    <span data-logo="52"></span>
-    <h2 class="h2" id="closing-title">Your Next Beach Day Starts Here</h2>
-    <p>Pet friendly beach rentals on Florida's Emerald Coast.</p>
-    <a class="btn btn--primary btn--lg" href="vacation-rentals.html">Book Your Stay</a>
+  <section class="cta">
+    <div class="container">
+      <div class="cta__band">
+        <div class="paw-dots paw-dots--coral" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <h2>Ready for a Pet Friendly Beach Vacation in Destin?</h2>
+        <a class="btn btn--primary btn--fluid" href="vacation-rentals.html">Book Your Stay</a>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<div data-site-footer></div>
-<script src="site.js"></script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="14" cy="27" r="5.5" class="brand__paw"></circle><circle cx="24.5" cy="17" r="5.5" class="brand__paw"></circle>
+            <circle cx="39.5" cy="17" r="5.5" class="brand__paw"></circle><circle cx="50" cy="27" r="5.5" class="brand__paw"></circle>
+            <path d="M14 45 A18 18 0 0 1 50 45 Z" class="brand__paw"></path>
+            <path d="M9 51 q5.75 -4 11.5 0 t11.5 0 t11.5 0 t11.5 0" class="brand__wave" fill="none" stroke-width="3.2" stroke-linecap="round"></path>
+            <path d="M15 58 q4.25 -3 8.5 0 t8.5 0 t8.5 0 t8.5 0" class="brand__wave" fill="none" stroke-width="3.2" stroke-linecap="round"></path>
+          </svg>
+          <span class="brand__name">Destin Pet Friendly Condos</span>
+        </a>
+        <p>Pet friendly vacation condos at Maravilla, Destin, Florida.</p>
+      </div>
+      <div class="site-footer__col site-footer__contact">
+        <h2>Contact</h2>
+        <a href="tel:6783135115"><svg class="site-footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>678-313-5115</a>
+        <a href="mailto:thedestinconnection@gmail.com"><svg class="site-footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>thedestinconnection@gmail.com</a>
+        <span class="site-footer__loc"><svg class="site-footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Destin, Florida</span>
+      </div>
+      <nav class="site-footer__col" aria-label="Plan your stay">
+        <h2>Plan your stay</h2>
+        <a href="vacation-rentals.html">Vacation Rentals</a>
+        <a href="things-to-do.html">Things to Do</a>
+        <a href="getting-here.html">Getting Here</a>
+        <a href="guest-reviews.html">Guest Reviews</a>
+      </nav>
+      <nav class="site-footer__col" aria-label="Good to know">
+        <h2>Good to know</h2>
+        <a href="about-us.html">About Us</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="rental-policies.html">Rental Policies</a>
+        <a href="pet-info.html">Pet Info</a>
+      </nav>
+    </div>
+    <div class="site-footer__legal"><span>© 2026 Destin Pet Friendly Condos</span><span>Destin, Florida · Emerald Coast</span></div>
+  </div>
+</footer>
+
+<script src="site-shared.js"></script>
 </body>
 </html>
